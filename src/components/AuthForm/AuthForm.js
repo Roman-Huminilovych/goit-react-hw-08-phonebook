@@ -86,9 +86,8 @@ export const AuthForm = ({ title }) => {
             name: '',
             showPassword: false,
           }}
-          onSubmit={(values, { resetForm }) => {
+          onSubmit={values => {
             handleSubmit(values.name, values.email, values.password);
-            resetForm();
           }}
         >
           {({ errors, touched, values }) => {

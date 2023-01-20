@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCurrentUser } from 'redux/auth/authOperations';
+import Loader from 'components/Loader/Loader';
 
 const HomeView = lazy(() => import('../views/HomeView'));
 const ContactsView = lazy(() => import('../views/ContactsView'));
@@ -18,7 +19,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="*" element={<Navigate to="register" />} />
         <Route path="/" element={<Navigate to="register" />} />
